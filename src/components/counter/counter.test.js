@@ -6,21 +6,21 @@ import renderer from 'react-test-renderer';
 describe('<counter />', () => {
   it('can add clicks properly', () => {
     let app = shallow(<Counter />);
-    let buttonDown = app.find('a.down clicker');
+    let buttonDown = app.find('a.downClicker');
     expect(buttonDown.exists()).toBe(true);
     expect(buttonDown.text()).toBe('-');
   });
 
   it('can subtract clicks properly', () => {
     let app = shallow(<Counter />);
-    let buttonUp = app.find('a.up clicker');
+    let buttonUp = app.find('a.upClicker');
     expect(buttonUp.exists()).toBe(true);
     expect(buttonUp.text()).toBe('+');
   });
 
   it('can successfully render state changes', () => {
     let app = shallow(<Counter />);
-    let buttonUp = app.find('a.up clicker');
+    let buttonUp = app.find('a.upClicker');
     expect(buttonUp.exists()).toBe(true);
     expect(buttonUp.text()).toBe('+');
 
@@ -35,6 +35,9 @@ describe('<counter />', () => {
 
   });
   it('can pass a snapshot test', () => {
-
+    const tree = renderer
+    .create(<Counter />)
+    .toJSON();
+  expect(tree).toMatchSnapshot();
   });
-})
+});
