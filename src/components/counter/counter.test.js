@@ -35,6 +35,9 @@ describe('<counter />', () => {
 
   });
   it('can pass a snapshot test', () => {
-
+    const tree = renderer
+    .create(<Counter />)
+    .toJSON();
+  expect(tree).toMatchSnapshot();
   });
-})
+});

@@ -30,13 +30,13 @@ class Counter extends React.Component {
     let classes = ['count', this.state.polarity].join(' ');
     return (
       <section className="counter">
-        <a href="#" className="down clicker" onClick={this.handleDown}>
+        <button id = "button1" className="downClicker" onClick={this.handleDown}>
           -
-        </a>
+        </button>
         <span className={classes}>{this.state.count}</span>
-        <a href="#" className="up clicker" onClick={this.handleUp}>
+        <button id = "button2" className= "upClicker" onClick={this.handleUp}>
           +
-        </a>
+        </button>
       </section>
     );
   }
